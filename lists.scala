@@ -36,3 +36,43 @@ println("nums(0): " + nums(0))
 
 //Same effect:
 println("nums(0): " + nums.apply(0))
+
+
+
+
+//Some interesting list methods:
+var strList = "Will" :: "Fill" :: "Untill" :: Nil //creating a new list with the 3 given values
+println(strList)
+
+
+println(strList.count(s => s.length == 4)) //Counts all strings that have 4 letters. Returns 2.
+
+
+strList = strList :+ "OneMoreOn theRight"
+strList = strList :+ "OneMoreOn theRight(2)"
+strList = "OneMoreOnTheRight" :: strList
+
+println(strList)
+
+
+//Dropping the first element:
+strList = strList.drop(1)
+
+//Dropping two elements on the right:
+strList = strList.dropRight(2)
+
+println(strList + "<- After dropping")
+
+
+
+println(strList.exists(s => s == "Fill")) //checks if the given string exists
+
+strList = strList.filter(s => s.length == 4)
+
+println(strList + "<- After filtering (4 letters)")
+
+strList.foreach(s => println(">>" + s + "<<"))
+
+println(strList.forall(s => s.length == 4)) //Checks if all strings consist of 4 letters
+
+println(strList.map(s => s + "y"))
